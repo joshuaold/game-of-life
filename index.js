@@ -4,20 +4,20 @@ var cell_status_array = []
 var render
 
 $(document).ready(function() {
-
 	createGrid()
-
 })
 
 function createGrid() {
+
 	for (i = 0; i < row_dimension; i++) {
 		for (j = 0; j < column_dimension; j++) {
 			let cellID = (column_dimension*i) + j
 			$('.gridContainer').append(
-				`<div class="cell" id=${cellID} onclick="clickCell(${cellID})"" is-alive="false" cell-row=${i} cell-column=${j}>${cellID}</div>`
+				`<div class="cell" id=${cellID} onclick="clickCell(${cellID})"" is-alive="false" cell-row=${i} cell-column=${j}></div>`
 			)
 		}		
 	}	
+
 }
 
 function clickCell(cellID) {
@@ -31,10 +31,12 @@ function clickCell(cellID) {
 }
 
 function clearCells() {
+
 	$('.cell').attr("is-alive", "false").css("background-color", "transparent")
 
 	clearInterval(render)
 	render = null
+	
 }
 
 function startGame() {
@@ -98,23 +100,6 @@ function getNeighbors(i, j) {
 
 	cellNeighbors.push(north)
 	cellNeighbors.push(south)
-
-	// if(j > 0)
-	// {
-	// 	cellNeighbors.push($(`#${northwest}`).attr("is-alive"))			
-	// 	cellNeighbors.push($(`#${west}`).attr("is-alive"))
-	// 	cellNeighbors.push($(`#${southwest}`).attr("is-alive"))			
-	// }			
-
-	// if(j < column_dimension-1)
-	// {
-	// 	cellNeighbors.push($(`#${northeast}`).attr("is-alive"))
-	// 	cellNeighbors.push($(`#${east}`).attr("is-alive"))
-	// 	cellNeighbors.push($(`#${southeast}`).attr("is-alive"))
-	// }			
-
-	// cellNeighbors.push($(`#${north}`).attr("is-alive"))
-	// cellNeighbors.push($(`#${south}`).attr("is-alive"))
 
 	cellNeighbors = cellNeighbors.filter(value => value >= 0 && value < 100)	
 
