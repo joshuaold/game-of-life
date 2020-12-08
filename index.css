@@ -1,0 +1,13 @@
+.gridContainer {
+	border: 1px solid black;
+	width: 550px;
+	padding: 100px;
+}
+
+.cell {
+	border: 1px solid black;
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+}
